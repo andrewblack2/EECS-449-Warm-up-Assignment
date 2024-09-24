@@ -17,3 +17,18 @@ class interact_with_body(_Jac.Walker):
 
     def return_message(self, _jac_here_: _Jac.RootType) -> None:
         _Jac.report({'response': 'Hello, ' + self.name + '!'})
+
+@_Jac.make_walker(on_entry=[_Jac.DSFunc('return_message', _Jac.RootType)], on_exit=[])
+@__jac_dataclass__(eq=False)
+class interact_say_goodbye(_Jac.Walker):
+
+    def return_message(self, _jac_here_: _Jac.RootType) -> None:
+        _Jac.report({'response': 'Goodbye!'})
+
+@_Jac.make_walker(on_entry=[_Jac.DSFunc('return_message', _Jac.RootType)], on_exit=[])
+@__jac_dataclass__(eq=False)
+class interact_with_greeting(_Jac.Walker):
+    greeting: str
+
+    def return_message(self, _jac_here_: _Jac.RootType) -> None:
+        _Jac.report({'response': self.greeting})
