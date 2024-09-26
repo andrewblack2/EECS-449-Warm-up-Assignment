@@ -96,6 +96,7 @@ node RagChat :Chat: {
     }
 }
 
+
 node QAChat :Chat: {
     has chat_type: ChatType = ChatType.QA;
 
